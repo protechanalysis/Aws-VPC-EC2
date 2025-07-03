@@ -1,0 +1,26 @@
+Security & Best Practice Audit Findings
+
+Credential Exposure
+- No hardcoded AWS credentials (access keys, secret keys, tokens, passwords, or private keys) were found in the Terraform codebase or documentation.
+- References to `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are only present as usage instructions in documentation, not as actual values.
+- The `.terraform/terraform.tfstate` file contains null values for `access_key`, `secret_key`, and `token`, which is expected and not a risk.
+
+Best Practice Review
+- AWS credentials are not stored in code. Documentation instructs users to use environment variables or `aws configure`.
+- There is a clear recommendation to store credentials as repository secrets for CI/CD, not in code.
+- No sensitive values are present in the README or other documentation.
+- The project uses modules for separation of concerns and reusability.
+- S3 buckets are configured with encryption, lifecycle, and public access blocks.
+- Security groups are defined with variables for ingress/egress, supporting least-privilege access.
+- IAM roles and policies are used for EC2 and VPC Flow Logs.
+- Remote backend is configured for state management (backend_s3.tf).
+- The README includes security best practices and CI/CD guidance.
+
+Recommendations
+- Continue to avoid committing any `.tfvars` files with secrets or credentials.
+- Add `.tfvars` and `.tfstate` to `.gitignore` if not already present.
+- Regularly review state files and CI/CD logs for accidental secret exposure.
+- Use IAM roles and environment variables for all automation and local runs.
+
+Result:
+No credential exposure detected. Best practices are being followed.

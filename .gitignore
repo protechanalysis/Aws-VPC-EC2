@@ -1,0 +1,3 @@
+.terraform/*
+aurogern.md
+.terraform.lock.hcl

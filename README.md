@@ -27,7 +27,7 @@ This repository provisions a secure, modular AWS VPC environment using Terraform
 ---
 
 ## Architecture Diagram
-
+![architecture](./vpc_ec2.png)
 
 ## Directory Structure
 ```

@@ -86,6 +86,7 @@ VPC_EC2/
 1. **Clone the repository**
    ```sh
    git clone https://github.com/protechanalysis/Aws-VPC-EC2.git
+   cd terraform
    ```
 2. **Configure AWS credentials**
    - Use `aws configure` or set environment variables (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`)
